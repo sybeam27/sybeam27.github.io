@@ -74,10 +74,90 @@ $P(\emptyset) = 0, \quad P(\alpha \cup \beta) = P(\alpha) + P(\beta) - P(\alpha 
 즉, 빈도주의와 주관주의는 철학적 접근이 다를 뿐, 확률의 수학적 정의와 계산법에는 동일하게 적용된다.
 
 #### 2.1.2 Basic Concepts in Probability
-##### 2.1.2.1 Conditional Probability
-##### 2.1.2.2 Chain Rule and Bayes Rule
+##### 2.1.2.1 조건부 확률(Conditional Probability)
+구체적인 예를 들어서, 어떤 과목을 수강하는 학생들의 모집단에 대한 확률분포를 고려한다고 하자. 이 경우 가능한 결과의 공간은 단순히 “모든 학생들의 집합”이다.
 
---
+이제 학생들의 지능과 최종 성적에 대해 추론하고 싶다고 하자.  
+사건 $\alpha$ 는 “A 학점을 받은 학생들”을, 사건 $\beta$ 는 “지능이 높은 학생들”을 나타낸다고 하자.  
+
+이때 우리는 분포를 통해 각 사건의 확률 $P(\alpha)$, $P(\beta)$,  
+그리고 두 사건이 동시에 일어나는 $P(\alpha \cap \beta)$ 를 계산할 수 있다.  
+하지만 이것만으로 새로운 정보를 얻었을 때 기존의 믿음을 어떻게 갱신할지(update our beliefs)를 알 수는 없다.
+- 예를 들어, “어떤 학생이 A 학점을 받았다”는 사실을 알게 되었다면,  
+그 학생의 지능에 대해 무엇을 추론할 수 있을까?
+
+즉, “사건 $\alpha$ 가 참임을 알게 되었을 때, 사건 $\beta$ 가 일어날 확률은 어떻게 바뀌는가?”  
+이것이 바로 **조건부 확률(Conditional Probability)** 의 개념이다.
+
+- 조건부 확률의 **정의**
+    사건 $\alpha$ 가 주어졌을 때, 사건 $\beta$ 의 조건부 확률은 다음과 같이 정의된다.
+    $$
+    P(\beta \mid \alpha) = \frac{P(\alpha \cap \beta)}{P(\alpha)}
+    $$
+
+    즉, “$\alpha$ 가 일어났을 때 $\beta$ 가 일어날 확률"은 “$\alpha$ 를 만족하는 결과 중에서 $\beta$ 도 만족하는 결과의 비율”로 정의된다. 단, $P(\alpha) = 0$ 인 경우 조건부 확률은 정의되지 않는다.
+
+
+- 조건부 확률 **성질**
+    조건부 확률은 확률분포 조건을 만족한다. 
+    즉, 어떤 사건 $\alpha$ 가 주어졌을 때 정의된 조건부 확률 $P(\cdot \mid \alpha)$ 자체가 하나의 완전한 확률분포로 간주될 수 있다.  
+
+    따라서, 조건부 확률은 하나의 분포를 입력받아, 같은 확률 공간 위에서 또 다른 분포를 반환하는 연산자로 볼 수 있다.
+
+
+##### 2.1.2.2 연쇄 법칙/베이즈 법칙(Chain Rule and Bayes Rule)
+조건부 확률의 정의로부터 다음 관계를 즉시 얻을 수 있다.
+$P(\alpha \cap \beta) = P(\alpha) P(\beta \mid \alpha)$
+
+이 식은 **조건부 확률의 연쇄 법칙(Chain Rule)** 으로 불린다.  
+더 일반적으로, 사건 $\alpha_1, \alpha_2, ..., \alpha_k$ 가 있을 때 다음이 성립한다.
+$P(\alpha_1 \cap \alpha_2 \cap ... \cap \alpha_k) = P(\alpha_1) P(\alpha_2 \mid \alpha_1) \cdots P(\alpha_k \mid \alpha_1 \cap ... \cap \alpha_{k-1})$
+
+즉, 여러 사건이 동시에 일어날 확률을 첫 번째 사건의 확률, 두 번째 사건이 첫 번째 사건이 일어난 후 일어날 확률, 그 이후의 조건부 확률들로 표현할 수 있다. 이 식은 사건들의 순서를 바꿔도 동일한 결과를 얻는다.
+
+- 베이즈 법칙 (Bayes’ Rule)
+    조건부 확률의 정의에서 또 하나의 중요한 결과는 **베이즈 법칙**이다.
+    $P(\alpha \mid \beta) = \frac{P(\beta \mid \alpha) P(\alpha)}{P(\beta)}$
+
+    모든 확률이 어떤 배경 사건 $\gamma$ 에 조건부로 주어졌을 때도 다음이 성립한다.
+    $P(\alpha \mid \beta \cap \gamma)
+    = \frac{P(\beta \mid \alpha \cap \gamma) P(\alpha \mid \gamma)}{P(\beta \mid \gamma)}$
+
+    베이즈 법칙의 핵심은,  
+    우리가 직접 구하기 어려운 **$P(\alpha \mid \beta)$** 를  
+    더 쉽게 계산 가능한 **“역조건 확률” $P(\beta \mid \alpha)$** 로부터 구할 수 있게 해준다는 점이다.
+
+
+- Example 2.1
+    학생 모집단에서,  
+    - $\text{Smart}$ = “지능이 높은 학생들”  
+    - $\text{GradeA}$ = “A 학점을 받은 학생들”  
+    이라 하자.
+
+    이전 통계에 따라 다음과 같은 정보를 알고 있다:
+    $P(\text{GradeA} \mid \text{Smart}) = 0.6$
+    즉, 지능이 높은 학생이 A 학점을 받을 확률은 0.6이다.  
+    이제 특정 학생이 A 학점을 받았다는 사실을 알게 되었다면,  
+    그 학생이 똑똑할 확률은 얼마일까? -> 반대로 생각해야 함!
+
+    베이즈 법칙에 따라 다음과 같이 계산된다.
+    $P(\text{Smart} \mid \text{GradeA}) = \frac{P(\text{GradeA} \mid \text{Smart}) P(\text{Smart})}{P(\text{GradeA})}$
+
+    예를 들어,
+    - $P(\text{Smart}) = 0.3$  
+    - $P(\text{GradeA}) = 0.2$  
+    $P(\text{Smart} \mid \text{GradeA}) = \frac{0.6 \times 0.3}{0.2} = 0.9$
+
+    즉, A 학점을 받은 학생이 똑똑할 확률은 90%로 매우 높다.  
+    하지만 만약 시험이 쉬워서 A 학점을 받은 학생이 많다면  
+    ($P(\text{GradeA}) = 0.4$), 다음과 같이 된다.
+    $P(\text{Smart} \mid \text{GradeA}) = \frac{0.6 \times 0.3}{0.4} = 0.45$
+
+    이 경우, A 학점만으로는 학생이 똑똑하다고 결론 내리기 어려우며, **사건의 사전확률(prior probability)**의 중요성을 보여준다.
+
+
+베이즈 법칙은 의료 진단, 스팸 탐지, 신용 평가 등 현대 AI와 데이터 과학의 핵심적 도구이다.  
+예를 들어, 질병 진단에서 테스트 결과가 양성일 때 실제로 질병이 존재할 확률을 베이즈 법칙을 통해 계산할 수 있으며, 이는 단순한 직관적 확률이 아닌, 사전 확률과 조건부 관계를 반영한 **합리적 추론(rational inference)** 이라고 할 수 있다.
 
 #### 2.1.3 Random Variables and Joint Distributions
 ##### 2.1.3.1 Motivation
