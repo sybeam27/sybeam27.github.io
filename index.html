@@ -2,14 +2,13 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>📁 Repository Tree – sybeam27.github.io</title>
+  <title>📘 Probabilistic Graphical Models</title>
   <style>
     :root {
       --bg: #fafafa;
       --fg: #222;
       --border: #ddd;
       --accent: #0066cc;
-      --card-bg: #fff;
     }
 
     body.dark {
@@ -17,7 +16,6 @@
       --fg: #f1f1f1;
       --border: #333;
       --accent: #4ea1ff;
-      --card-bg: #1e1e1e;
     }
 
     body {
@@ -25,7 +23,7 @@
       font-family: sans-serif;
       background: var(--bg);
       color: var(--fg);
-      padding: 40px;
+      padding: 50px;
       transition: background 0.3s, color 0.3s;
     }
 
@@ -33,118 +31,107 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1.5em;
-      margin-bottom: 15px;
+      font-size: 1.6em;
+      margin-bottom: 20px;
     }
 
     button {
       background: var(--accent);
-      color: #fff;
+      color: white;
       border: none;
       border-radius: 6px;
       padding: 6px 10px;
       cursor: pointer;
-      font-size: 0.9em;
     }
 
     button:hover { opacity: 0.9; }
 
-    #search {
-      width: 100%;
-      padding: 6px 8px;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      margin-bottom: 10px;
-      background: var(--bg);
-      color: var(--fg);
-      transition: background 0.3s, color 0.3s;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    ul { list-style-type: none; padding-left: 20px; margin: 0; }
-    li { cursor: pointer; margin: 4px 0; transition: color 0.2s; user-select: none; }
-    li:hover { color: var(--accent); }
+    li {
+      font-size: 1.1em;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
 
-    .folder::before { content: "📁 "; }
-    .file::before { content: "📄 "; }
+    li::before {
+      content: "📂 ";
+    }
 
-    .nested { display: none; margin-left: 15px; }
-    .active { display: block; animation: fadein 0.3s ease-in; }
+    li:hover {
+      color: var(--accent);
+    }
 
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(-2px); }
-      to { opacity: 1; transform: translateY(0); }
+    #message {
+      font-style: italic;
+      color: #777;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
   <h1>
-    📘 sybeam27.github.io
+    📘 Probabilistic Graphical Models
     <button id="themeToggle">🌙</button>
   </h1>
-  <input type="text" id="search" placeholder="검색 (예: chapter01)">
-  <ul id="tree-root"></ul>
+  <ul id="chapter-list"></ul>
+  <p id="message"></p>
 
   <script>
     // 🌙 다크모드
-    const themeBtn = document.getElementById('themeToggle');
-    themeBtn.addEventListener('click', () => {
+    const btn = document.getElementById('themeToggle');
+    btn.addEventListener('click', () => {
       document.body.classList.toggle('dark');
-      themeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+      btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
     });
 
-    // 📂 트리 로드
-    fetch('structure.json')
+    // 📂 structure.json 로드
+    fetch('../structure.json')
       .then(response => response.json())
       .then(data => {
-        const root = document.getElementById('tree-root');
-        const contents = data[0].contents || data;
-        contents.forEach(item => root.appendChild(createNode(item, '')));
-      });
+        const list = document.getElementById('chapter-list');
+        const msg = document.getElementById('message');
+        const topLevel = data[0].contents || data;
 
-    // 🧱 트리 노드 생성
-    function createNode(node, currentPath) {
-      const li = document.createElement('li');
-      const fullPath = currentPath ? `${currentPath}/${node.name}` : node.name;
-
-      if (node.type === 'directory') {
-        li.textContent = node.name;
-        li.classList.add('folder');
-
-        const ul = document.createElement('ul');
-        ul.classList.add('nested');
-        li.appendChild(ul);
-
-        li.addEventListener('click', (e) => {
-          e.stopPropagation();
-          ul.classList.toggle('active');
-        });
-
-        if (node.contents) {
-          node.contents.forEach(child => {
-            ul.appendChild(createNode(child, fullPath));
-          });
+        // probabilistic_graphical_models 폴더만 찾기
+        const pgmFolder = findFolder(topLevel, 'probabilistic_graphical_models');
+        if (!pgmFolder) {
+          msg.textContent = "⚠️ 'probabilistic_graphical_models' 폴더를 찾을 수 없습니다.";
+          return;
         }
 
-      } else if (node.type === 'file') {
-        li.textContent = node.name;
-        li.classList.add('file');
-        li.addEventListener('click', (e) => {
-          e.stopPropagation();
-          window.location.href = fullPath;
+        const chapters = pgmFolder.contents.filter(item => item.type === 'directory');
+        if (chapters.length === 0) {
+          msg.textContent = "아직 chapter 폴더가 없습니다.";
+        }
+
+        // chapter 리스트 만들기
+        chapters.forEach(ch => {
+          const li = document.createElement('li');
+          li.textContent = ch.name;
+          li.addEventListener('click', () => {
+            window.location.href = `${ch.name}/index.html`;
+          });
+          list.appendChild(li);
         });
-      }
-
-      return li;
-    }
-
-    // 🔍 검색 기능
-    document.getElementById('search').addEventListener('input', (e) => {
-      const keyword = e.target.value.toLowerCase();
-      const items = document.querySelectorAll('#tree-root li');
-      items.forEach(li => {
-        li.style.display = li.textContent.toLowerCase().includes(keyword) ? 'block' : 'none';
       });
-    });
+
+    // 🔍 특정 폴더 찾기 함수
+    function findFolder(contents, name) {
+      for (const item of contents) {
+        if (item.type === 'directory' && item.name === name) return item;
+        if (item.contents) {
+          const found = findFolder(item.contents, name);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
   </script>
 </body>
 </html>
