@@ -96,7 +96,7 @@
   </h1>
 
   <div id="intro">
-    <br>이 페이지는 <strong>2026 DILAB 튜터링</strong> 관련 학습 자료와 챕터별 링크를 모아둔 공간입니다.
+    이 페이지는 <strong>2026 DILAB 튜터링</strong> 관련 학습 자료와 챕터별 링크를 모아둔 공간입니다.
   </div>
 
   <input type="text" id="search" placeholder="검색 (예: chapter01)">
@@ -149,14 +149,6 @@
       return li;
     }
 
-    // 🔍 검색 기능
-    document.getElementById('search').addEventListener('input', (e) => {
-      const keyword = e.target.value.toLowerCase();
-      const items = document.querySelectorAll('#tree-root li');
-      items.forEach(li => {
-        li.style.display = li.textContent.toLowerCase().includes(keyword) ? 'block' : 'none';
-      });
-    });
   </script>
 </body>
 </html>
