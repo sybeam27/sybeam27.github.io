@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>📁 Repository Tree – sybeam27.github.io</title>
+  <title>📘 2026 DILAB Tutoring: Probabilistic Graphical Models</title>
   <style>
     :root {
       --bg: #fafafa;
@@ -34,7 +34,21 @@
       justify-content: space-between;
       align-items: center;
       font-size: 1.5em;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+    }
+
+    #intro {
+      margin-bottom: 25px;
+      padding: 15px 20px;
+      border-left: 4px solid var(--accent);
+      background: var(--card-bg);
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      line-height: 1.6;
+    }
+
+    #intro strong {
+      color: var(--accent);
     }
 
     button {
@@ -81,6 +95,13 @@
     📘 sybeam27.github.io
     <button id="themeToggle">🌙</button>
   </h1>
+
+  <!-- ✅ 추가된 소개 영역 -->
+  <div id="intro">
+    <strong>2026 DILAB Tutoring:</strong> Probabilistic Graphical Models  
+    <br>이 페이지는 DILAB 튜터링 관련 학습 자료와 챕터별 링크를 모아둔 공간입니다.
+  </div>
+
   <input type="text" id="search" placeholder="검색 (예: chapter01)">
   <ul id="tree-root"></ul>
 
