@@ -1,11 +1,9 @@
-{
-  "docs": {
-    "chapter01": {
-      "1.html": null,
-      "2.html": null
-    },
-    "chapter02": {
-      "1.html": null
-    }
-  }
-}
+[
+  {"type":"directory","name":".","contents":[
+    {"type":"file","name":"index.html"},
+    {"type":"file","name":"README.md"},
+    {"type":"file","name":"structure.json"}
+  ]}
+,
+  {"type":"report","directories":1,"files":3}
+]
