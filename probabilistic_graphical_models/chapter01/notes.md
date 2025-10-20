@@ -48,9 +48,21 @@ PGM은 '확률'로 관계를 표현하고, '그래프'로 지식을 구조화하
 지식(knowledge) 과 추론(reasoning) 을 명확히 분리할 수 있게 해준다.
 - 확률은 세상을 설명하는 언어가 되고, 그래프는 그 언어를 조직화하는 구조이다.
 
+----
 
 ### 1.2 Structured Probabilistic Graphical Models
+> 이 책은 복잡한 시스템에 대한 확률적 모델을 구성하고 활용하기 위한 범용 프레임워크를 다룬다. 이 프레임워크의 핵심 원리를 직관적으로 이해할 수 있도록 설명하고, 그 안에 포함된 모델들에 대한 개념적 기반을 소개한다. 이 secion은 **확률 이론의 기본 개념**을 알고 있어야 한다. (-> Section 2.1)
+
+#### 1.2.1 Probabilistic Graphical Models
+
+#### 1.2.2 Representation, Inference, Learning
+
+----
 
 ### 1.3 Overview and Roadmap
 
+----
+
 ### 1.4 Historical Notes
+
+----
