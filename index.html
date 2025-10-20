@@ -1,1 +1,52 @@
-Hello World
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic Tree Example</title>
+<style>
+  ul { list-style-type: none; }
+  li { cursor: pointer; margin: 4px 0; }
+  .nested { display: none; }
+  .active { display: block; }
+</style>
+</head>
+<body>
+
+<h2>📂 내 문서 탐색기</h2>
+<ul id="tree-root"></ul>
+
+<script>
+  // JSON 파일 불러오기
+  fetch('structure.json')
+    .then(response => response.json())
+    .then(data => createTree(document.getElementById('tree-root'), data));
+
+  // 트리 생성 함수
+  function createTree(parent, obj) {
+    Object.entries(obj).forEach(([key, value]) => {
+      const li = document.createElement('li');
+      li.textContent = key;
+      parent.appendChild(li);
+
+      if (value && typeof value === 'object') {
+        const ul = document.createElement('ul');
+        ul.classList.add('nested');
+        li.appendChild(ul);
+        createTree(ul, value);
+
+        li.addEventListener('click', (e) => {
+          e.stopPropagation();
+          ul.classList.toggle('active');
+        });
+      } else if (value === null) {
+        li.style.cursor = 'default';
+        li.addEventListener('click', () => {
+          window.location.href = key; // HTML 파일로 이동
+        });
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
