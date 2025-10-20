@@ -65,7 +65,7 @@
 
     /* ✅ 굵은 텍스트 강조 색상 */
     strong, b {
-      color: var(--bold);
+      color: #d97706;
       font-weight: 700;
       transition: color 0.3s;
     }
@@ -80,6 +80,10 @@
     body.dark .green { color: #8ef78e; }
     body.dark .blue { color: #6bb8ff; }
     body.dark .orange { color: #ffb347; }
+    body.dark strong,
+    body.dark b {
+      color: #ffb347; /* 밝은 붉은색 */
+    }
 
     #topbar {
       display: flex;
