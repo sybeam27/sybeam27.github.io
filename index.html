@@ -2,44 +2,45 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Dynamic Folder Tree</title>
+  <title>Tutoring: Probabilistic Graphical Models</title>
   <style>
     body {
       font-family: sans-serif;
-      padding: 20px;
+      padding: 40px;
+      background: #fafafa;
+      line-height: 1.6;
     }
-    ul { list-style-type: none; margin-left: 20px; padding-left: 0; }
-    li { cursor: pointer; margin: 4px 0; }
-    .nested { display: none; }
-    .active { display: block; }
-    .folder::before {
-      content: "📁 ";
-    }
-    .file::before {
-      content: "📄 ";
-    }
-    h2 {
+    h1 {
+      font-size: 1.8em;
+      color: #222;
       margin-bottom: 10px;
     }
+    h2 {
+      color: #555;
+      margin-bottom: 20px;
+    }
+    ul { list-style-type: none; margin-left: 20px; padding-left: 0; }
+    li { cursor: pointer; margin: 6px 0; }
+    .folder::before { content: "📁 "; }
+    .file::before { content: "📄 "; }
+    li:hover { color: #0066cc; }
   </style>
 </head>
 <body>
 
-  <h2>📂 내 GitHub Pages 폴더 트리</h2>
+  <h1>📘 tutoring: probabilistic graphical models</h1>
+  <h2>폴더를 클릭하면 해당 주제의 내용으로 이동합니다.</h2>
+
   <ul id="tree-root"></ul>
 
   <script>
-    // structure.json 불러오기
     fetch('structure.json')
       .then(response => response.json())
       .then(data => {
         const root = document.getElementById('tree-root');
-        data.forEach(item => {
-          root.appendChild(createNode(item, ''));
-        });
+        data.forEach(item => root.appendChild(createNode(item, '')));
       });
 
-    // 노드 생성 함수
     function createNode(node, currentPath) {
       const li = document.createElement('li');
       const fullPath = currentPath ? `${currentPath}/${node.name}` : node.name;
@@ -48,27 +49,19 @@
         li.textContent = node.name;
         li.classList.add('folder');
 
-        const ul = document.createElement('ul');
-        ul.classList.add('nested');
-        li.appendChild(ul);
-
+        // 폴더 클릭 시 index.html로 이동
         li.addEventListener('click', (e) => {
           e.stopPropagation();
-          ul.classList.toggle('active');
+          const folderIndex = `${fullPath}/index.html`;
+          window.location.href = folderIndex;
         });
-
-        if (node.contents) {
-          node.contents.forEach(child => {
-            ul.appendChild(createNode(child, fullPath));
-          });
-        }
 
       } else if (node.type === 'file') {
         li.textContent = node.name;
         li.classList.add('file');
         li.addEventListener('click', (e) => {
           e.stopPropagation();
-          window.location.href = fullPath; // 파일로 이동
+          window.location.href = fullPath;
         });
       }
 
