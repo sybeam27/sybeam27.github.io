@@ -2,14 +2,13 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Tutoring: Probabilistic Graphical Models</title>
+  <title>📘 2026 DILAB Tutoring: Probabilistic Graphical Models</title>
   <style>
     :root {
       --bg: #fafafa;
       --fg: #222;
       --border: #ddd;
       --accent: #0066cc;
-      --card-bg: #fff;
     }
 
     body.dark {
@@ -17,46 +16,32 @@
       --fg: #f1f1f1;
       --border: #333;
       --accent: #4ea1ff;
-      --card-bg: #1e1e1e;
     }
 
     body {
       margin: 0;
       font-family: sans-serif;
-      display: flex;
-      height: 100vh;
       background: var(--bg);
       color: var(--fg);
+      padding: 50px;
       transition: background 0.3s, color 0.3s;
-    }
-
-    #sidebar {
-      width: 280px;
-      background: var(--card-bg);
-      border-right: 1px solid var(--border);
-      padding: 20px;
-      overflow-y: auto;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    #content {
-      margin-left: 300px;
-      padding: 40px;
-      flex: 1;
-      overflow-y: auto;
-      transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
     }
 
     h1 {
-      font-size: 1.3em;
-      color: var(--fg);
-      margin-top: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 1.6em;
+      margin-bottom: 10px;
+    }
+
+    p.description {
+      font-size: 1.05em;
+      color: var(--fg);
+      opacity: 0.85;
+      margin-top: 0;
+      margin-bottom: 30px;
     }
 
     button {
@@ -64,98 +49,93 @@
       color: white;
       border: none;
       border-radius: 6px;
-      padding: 5px 10px;
+      padding: 6px 10px;
       cursor: pointer;
-      font-size: 0.9em;
     }
 
     button:hover { opacity: 0.9; }
 
-    #search {
-      width: 100%;
-      padding: 6px 8px;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      margin-bottom: 10px;
-      background: var(--bg);
-      color: var(--fg);
-      transition: background 0.3s, color 0.3s;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    ul { list-style-type: none; padding-left: 15px; margin: 0; }
-    li { cursor: pointer; margin: 4px 0; transition: color 0.2s; user-select: none; }
-    li:hover { color: var(--accent); }
-
-    .folder::before { content: "📁 "; transition: transform 0.2s; }
-    .folder.open::before { content: "📂 "; }
-
-    .file::before { content: "📄 "; }
-
-    .nested { 
-      display: none; 
-      margin-left: 12px; 
-      transition: all 0.3s ease-in-out;
+    li {
+      font-size: 1.1em;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: color 0.2s;
     }
 
-    .active { 
-      display: block;
-      animation: fadein 0.3s ease-in;
+    li::before {
+      content: "📂 ";
     }
 
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(-2px); }
-      to { opacity: 1; transform: translateY(0); }
+    li:hover {
+      color: var(--accent);
     }
 
-    iframe {
-      width: 100%;
-      height: 90vh;
-      border: none;
-      background: var(--card-bg);
-      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    #message {
+      font-style: italic;
+      color: #777;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-  <div id="sidebar">
-    <h1>
-      📘 Probabilistic Graphical Models
-      <button id="themeToggle">🌙</button>
-    </h1>
-    <input type="text" id="search" placeholder="검색 (예: chapter01)">
-    <ul id="tree-root"></ul>
-  </div>
+  <h1>
+    📘 Probabilistic Graphical Models
+    <button id="themeToggle">🌙</button>
+  </h1>
 
-  <div id="content">
-    <iframe id="preview" src="" title="chapter view"></iframe>
-  </div>
+  <!-- 💬 소개 문구 -->
+  <p class="description">
+    <strong>2026 DILAB Tutoring:</strong> 이 페이지는 <em>Probabilistic Graphical Models</em> 튜터링 자료를 모아둔 공간입니다.<br>
+    아래에서 각 챕터를 클릭하여 내용을 확인하세요.
+  </p>
+
+  <ul id="chapter-list"></ul>
+  <p id="message"></p>
 
   <script>
     // 🌙 다크모드
-    const themeBtn = document.getElementById('themeToggle');
-    themeBtn.addEventListener('click', () => {
+    const btn = document.getElementById('themeToggle');
+    btn.addEventListener('click', () => {
       document.body.classList.toggle('dark');
-      themeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+      btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
     });
 
-    // 📁 트리 로드
+    // 📂 structure.json 로드
     fetch('../structure.json')
       .then(response => response.json())
       .then(data => {
-        const root = document.getElementById('tree-root');
+        const list = document.getElementById('chapter-list');
+        const msg = document.getElementById('message');
         const topLevel = data[0].contents || data;
 
         const pgmFolder = findFolder(topLevel, 'probabilistic_graphical_models');
-        if (pgmFolder) {
-          pgmFolder.contents.forEach(item => {
-            root.appendChild(createNode(item, 'probabilistic_graphical_models'));
-          });
-        } else {
-          root.innerHTML = "<li>⚠️ 'probabilistic_graphical_models' 폴더를 찾을 수 없습니다.</li>";
+        if (!pgmFolder) {
+          msg.textContent = "⚠️ 'probabilistic_graphical_models' 폴더를 찾을 수 없습니다.";
+          return;
         }
+
+        const chapters = pgmFolder.contents.filter(item => item.type === 'directory');
+        if (chapters.length === 0) {
+          msg.textContent = "아직 chapter 폴더가 없습니다.";
+        }
+
+        chapters.forEach(ch => {
+          const li = document.createElement('li');
+          li.textContent = ch.name;
+          li.addEventListener('click', () => {
+            window.location.href = `${ch.name}/index.html`;
+          });
+          list.appendChild(li);
+        });
       });
 
-    // 📦 특정 폴더 찾기
+    // 특정 폴더 찾기
     function findFolder(contents, name) {
       for (const item of contents) {
         if (item.type === 'directory' && item.name === name) return item;
@@ -166,54 +146,6 @@
       }
       return null;
     }
-
-    // 🌲 트리 생성
-    function createNode(node, currentPath) {
-      const li = document.createElement('li');
-      const fullPath = currentPath ? `${currentPath}/${node.name}` : node.name;
-
-      if (node.type === 'directory') {
-        li.textContent = node.name;
-        li.classList.add('folder');
-
-        const ul = document.createElement('ul');
-        ul.classList.add('nested');
-        li.appendChild(ul);
-
-        li.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const isOpen = ul.classList.toggle('active');
-          li.classList.toggle('open', isOpen);
-          const folderIndex = `${fullPath}/index.html`;
-          document.getElementById('preview').src = folderIndex;
-        });
-
-        if (node.contents) {
-          node.contents.forEach(child => {
-            ul.appendChild(createNode(child, fullPath));
-          });
-        }
-
-      } else if (node.type === 'file') {
-        li.textContent = node.name;
-        li.classList.add('file');
-        li.addEventListener('click', (e) => {
-          e.stopPropagation();
-          document.getElementById('preview').src = fullPath;
-        });
-      }
-
-      return li;
-    }
-
-    // 🔍 검색 기능
-    document.getElementById('search').addEventListener('input', (e) => {
-      const keyword = e.target.value.toLowerCase();
-      const items = document.querySelectorAll('#tree-root li');
-      items.forEach(li => {
-        li.style.display = li.textContent.toLowerCase().includes(keyword) ? 'block' : 'none';
-      });
-    });
   </script>
 </body>
 </html>
