@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>📘 Probabilistic Graphical Models</title>
+  <title>📘 2026 DILAB Tutoring: Probabilistic Graphical Models</title>
   <style>
     :root {
       --bg: #fafafa;
@@ -25,6 +25,7 @@
       color: var(--fg);
       padding: 50px;
       transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
     }
 
     h1 {
@@ -32,7 +33,15 @@
       justify-content: space-between;
       align-items: center;
       font-size: 1.6em;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+    }
+
+    p.description {
+      font-size: 1.05em;
+      color: var(--fg);
+      opacity: 0.85;
+      margin-top: 0;
+      margin-bottom: 30px;
     }
 
     button {
@@ -79,6 +88,13 @@
     📘 Probabilistic Graphical Models
     <button id="themeToggle">🌙</button>
   </h1>
+
+  <!-- 💬 소개 문구 -->
+  <p class="description">
+    <strong>2026 DILAB Tutoring:</strong> 이 페이지는 <em>Probabilistic Graphical Models</em> 튜터링 자료를 모아둔 공간입니다.<br>
+    아래에서 각 챕터를 클릭하여 내용을 확인하세요.
+  </p>
+
   <ul id="chapter-list"></ul>
   <p id="message"></p>
 
@@ -98,7 +114,6 @@
         const msg = document.getElementById('message');
         const topLevel = data[0].contents || data;
 
-        // probabilistic_graphical_models 폴더만 찾기
         const pgmFolder = findFolder(topLevel, 'probabilistic_graphical_models');
         if (!pgmFolder) {
           msg.textContent = "⚠️ 'probabilistic_graphical_models' 폴더를 찾을 수 없습니다.";
@@ -110,7 +125,6 @@
           msg.textContent = "아직 chapter 폴더가 없습니다.";
         }
 
-        // chapter 리스트 만들기
         chapters.forEach(ch => {
           const li = document.createElement('li');
           li.textContent = ch.name;
@@ -121,7 +135,7 @@
         });
       });
 
-    // 🔍 특정 폴더 찾기 함수
+    // 특정 폴더 찾기
     function findFolder(contents, name) {
       for (const item of contents) {
         if (item.type === 'directory' && item.name === name) return item;
