@@ -67,6 +67,8 @@ $P(\emptyset) = 0, \quad P(\alpha \cup \beta) = P(\alpha) + P(\beta) - P(\alpha 
 이 책에서는 확률을 다룰 때 두 해석 중 어느 하나를 명시하지 않는다. 두 해석 모두 동일한 수학적 규칙을 따르기 때문이다.  
 즉, 빈도주의와 주관주의는 철학적 접근이 다를 뿐, 확률의 수학적 정의와 계산법에는 동일하게 적용된다.
 
+----
+
 ### 2.1.2 Basic Concepts in Probability
 #### **2.1.2.1 조건부 확률(Conditional Probability)**
 구체적인 예를 들어서, 어떤 과목을 수강하는 학생들의 모집단에 대한 확률분포를 고려한다고 하자. 이 경우 가능한 결과의 공간은 단순히 “모든 학생들의 집합”이다.
@@ -152,6 +154,8 @@ $P(\alpha_1 \cap \alpha_2 \cap ... \cap \alpha_k) = P(\alpha_1) P(\alpha_2 \mid 
 
 베이즈 법칙은 의료 진단, 스팸 탐지, 신용 평가 등 현대 AI와 데이터 과학의 핵심적 도구이다.  
 예를 들어, 질병 진단에서 테스트 결과가 양성일 때 실제로 질병이 존재할 확률을 베이즈 법칙을 통해 계산할 수 있으며, 이는 단순한 직관적 확률이 아닌, 사전 확률과 조건부 관계를 반영한 **합리적 추론(rational inference)** 이라고 할 수 있다.
+
+----
 
 ### 2.1.3 Random Variables and Joint Distributions
 #### **2.1.3.1 Motivation**
@@ -262,29 +266,31 @@ $P(\text{Intelligence} \mid \text{Grade} = A)$는 “학생의 성적이 A임을
 다음과 같이 베이즈 정리를 얻을 수 있다: $P(X \mid Y) = \frac{P(X) P(Y \mid X)}{P(Y)}$  
 이는 “원인에 대한 사전 확률(prior)”과 “관찰된 결과에 대한 우도(likelihood)”를 결합하여 “관찰 후의 갱신된 확률(posterior)”을 계산하는 방식이다.
 
+----
+
 ### 2.1.4 Independence and Conditional Independence
 #### 2.1.4.1 Independece
 #### 2.1.4.2 Conditional Independence
 #### 2.1.4.3 Independence of Random Variables
 
---
+----
 
 ### 2.1.5 Querying a Distribution
 #### 2.1.5.1 Probability Queries
 #### 2.1.5.2 MAP Queries
 #### 2.1.5.3 Marginal MAP Queries
 
---
+----
 
 ### 2.1.6 Continous Spaces
 #### 2.1.6.1 Probability Density Functions
 #### 2.1.6.2 Joint Density Functions
 #### 2.1.6.3 Conditional Density Functions
 
---
+----
 
 ### 2.1.7 Expectation and Variance
 #### 2.1.7.1 Expectation
 #### 2.1.7.2 Variance
 
---
+----
