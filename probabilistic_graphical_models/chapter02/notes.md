@@ -1,9 +1,8 @@
 ## Chapter 2: Foundations
 이 chapter의 목적은 해당 분야의 포괄적인 개요를 제공하려는 것이 아니라,
 책의 나머지 부분을 이해하는 데 필요한 핵심 아이디어의 최소한의 집합을 소개하는 것이다.
-확률 이론, 정보 이론, 그리고 그래프 이론의 핵심 개념과 관련된 중요한 배경 지식을 다룬다.
 
-그 외의 배경 지식 (ex. 이산 및 연속 최적화, 알고리즘 복잡도 분석, 기본 알고리즘 개념 등)은 특정 주제에 더 밀접하게 연관되어 있다. 이러한 개념들 중 일부는 부록에서 다루며, 일부는 본문 내 concept box에 제시된다.
+확률 이론, 정보 이론, 그리고 그래프 이론의 핵심 개념과 관련된 중요한 배경 지식을 다룬다.
 
 ----
 
@@ -39,11 +38,9 @@
 사건 $\alpha \in S$ 를 실수 값으로 대응시키며 다음의 조건들을 만족한다.
 - 각 사건의 확률: $P(\alpha) \ge 0 \quad \forall \alpha \in S$
 - 전체 사건의 확률: $P(\Omega) = 1$
-- 배타적 사건의 확률: 만약 $\alpha, \beta \in S$ 이고 $\alpha \cap \beta = \emptyset$ 이면  
-  $P(\alpha \cup \beta) = P(\alpha) + P(\beta)$
+- 배타적 사건의 확률: 만약 $\alpha, \beta \in S$ 이고 $\alpha \cap \beta = \emptyset$ 이면 $P(\alpha \cup \beta) = P(\alpha) + P(\beta)$
 
-이 세 조건은 다른 여러 중요한 성질을 내포한다.  
-예를 들어 다음이 성립한다.
+이 세 조건은 다른 여러 중요한 성질을 내포하며 다음이 성립한다.
 $P(\emptyset) = 0, \quad P(\alpha \cup \beta) = P(\alpha) + P(\beta) - P(\alpha \cap \beta)$
 
 ##### 2.1.1.3 확률 해석(Interpretations of Probability)
