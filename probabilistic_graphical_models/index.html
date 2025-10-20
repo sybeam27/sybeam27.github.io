@@ -83,14 +83,24 @@
     }
 
     ul { list-style-type: none; padding-left: 15px; margin: 0; }
-    li { cursor: pointer; margin: 4px 0; transition: color 0.2s; }
+    li { cursor: pointer; margin: 4px 0; transition: color 0.2s; user-select: none; }
     li:hover { color: var(--accent); }
 
-    .folder::before { content: "📂 "; }
+    .folder::before { content: "📁 "; transition: transform 0.2s; }
+    .folder.open::before { content: "📂 "; }
+
     .file::before { content: "📄 "; }
 
-    .nested { display: none; }
-    .active { display: block; animation: fadein 0.3s ease-in; }
+    .nested { 
+      display: none; 
+      margin-left: 12px; 
+      transition: all 0.3s ease-in-out;
+    }
+
+    .active { 
+      display: block;
+      animation: fadein 0.3s ease-in;
+    }
 
     @keyframes fadein {
       from { opacity: 0; transform: translateY(-2px); }
@@ -109,7 +119,7 @@
 <body>
   <div id="sidebar">
     <h1>
-      📘 Tutoring
+      📘 Probabilistic Graphical Models
       <button id="themeToggle">🌙</button>
     </h1>
     <input type="text" id="search" placeholder="검색 (예: chapter01)">
@@ -128,15 +138,36 @@
       themeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
     });
 
-    // 📁 트리 로드 (경로 수정!)
+    // 📁 트리 로드
     fetch('../structure.json')
       .then(response => response.json())
       .then(data => {
         const root = document.getElementById('tree-root');
         const topLevel = data[0].contents || data;
-        topLevel.forEach(item => root.appendChild(createNode(item, '')));
+
+        const pgmFolder = findFolder(topLevel, 'probabilistic_graphical_models');
+        if (pgmFolder) {
+          pgmFolder.contents.forEach(item => {
+            root.appendChild(createNode(item, 'probabilistic_graphical_models'));
+          });
+        } else {
+          root.innerHTML = "<li>⚠️ 'probabilistic_graphical_models' 폴더를 찾을 수 없습니다.</li>";
+        }
       });
 
+    // 📦 특정 폴더 찾기
+    function findFolder(contents, name) {
+      for (const item of contents) {
+        if (item.type === 'directory' && item.name === name) return item;
+        if (item.contents) {
+          const found = findFolder(item.contents, name);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
+
+    // 🌲 트리 생성
     function createNode(node, currentPath) {
       const li = document.createElement('li');
       const fullPath = currentPath ? `${currentPath}/${node.name}` : node.name;
@@ -151,7 +182,8 @@
 
         li.addEventListener('click', (e) => {
           e.stopPropagation();
-          ul.classList.toggle('active');
+          const isOpen = ul.classList.toggle('active');
+          li.classList.toggle('open', isOpen);
           const folderIndex = `${fullPath}/index.html`;
           document.getElementById('preview').src = folderIndex;
         });
