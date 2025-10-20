@@ -76,11 +76,3 @@ PGM은 '확률'로 관계를 표현하고, '그래프'로 지식을 구조화하
 #### 1.2.2 Representation, Inference, Learning
 
 ----
-
-### 1.3 Overview and Roadmap
-
-----
-
-### 1.4 Historical Notes
-
-----
