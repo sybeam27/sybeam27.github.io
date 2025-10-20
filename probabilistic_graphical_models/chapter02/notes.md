@@ -29,15 +29,25 @@
 
 확률론에서 사건 공간이 되기 위해서는 다음의 세 가지 기본 속성을 만족해야 한다.
 1. 공집합과 전체집합을 포함해야 한다.  
-2. 합집합(Union)에 대해 닫혀 있어야 한다.  
-> 즉, $\alpha, \beta \in S$ 이면 $\alpha \cup \beta \in S$ 여야 한다.  
-3. 여집합(Complement)에 대해 닫혀 있어야 한다.  
-> 즉, $\alpha \in S$ 이면 $Ω - \alpha \in S$ 여야 한다.
+2. 합집합(Union)에 대해 닫혀 있어야 한다. 즉, $\alpha, \beta \in S$ 이면 $\alpha \cup \beta \in S$ 여야 한다.  
+3. 여집합(Complement)에 대해 닫혀 있어야 한다. 즉, $\alpha \in S$ 이면 $Ω - \alpha \in S$ 여야 한다.
 
 이러한 두 번째와 세 번째 조건을 만족하면, 사건 공간은 자동으로 교집합(Intersection)과 차집합(Set Difference)같은 다른 boolean 연산에 대해서도 닫혀 있게 된다.
 
-##### 2.1.1.2 Probability Distributions
+##### 2.1.1.2 확률 분포(Probability Distributions)
+확률분포 $P$ 는 사건 공간 $(\Omega, S)$ 위에서 정의되는 함수로,  
+사건 $\alpha \in S$ 를 실수 값으로 대응시키며 다음의 조건들을 만족한다.
+- 각 사건의 확률: $P(\alpha) \ge 0 \quad \forall \alpha \in S$
+- 전체 사건의 확률: $P(\Omega) = 1$
+- 배타적 사건의 확률: 만약 $\alpha, \beta \in S$ 이고 $\alpha \cap \beta = \emptyset$ 이면  
+  $P(\alpha \cup \beta) = P(\alpha) + P(\beta)$
+
+이 세 조건은 다른 여러 중요한 성질을 내포한다.  
+예를 들어 다음이 성립한다.
+$P(\emptyset) = 0, \quad P(\alpha \cup \beta) = P(\alpha) + P(\beta) - P(\alpha \cap \beta)$
+
 ##### 2.1.1.3 Interpretations of Probability
+빈도주의(Frequentist) 해석으로 확률분포 $P$ 는 주어진 사건이 장기적인 반복 실험에서 얼마나 자주 발생하는지를 나타내는 함수로 해석될 수 있다.
 
 --
 
