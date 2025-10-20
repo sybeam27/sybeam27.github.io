@@ -6,15 +6,15 @@
 
 ----
 
-### 2.1 확률 이론(Probability Theory)
+## 2.1 확률 이론(Probability Theory)
 이 책의 주요 초점은 복잡한 확률 분포(complex probability distributions)에 있으며, 다음은 확률 이론의 기본 개념을 복습하는 내용이다.
 
-#### 2.1.1 확률 분포(Probability Distributions)
+### 2.1.1 확률 분포(Probability Distributions)
 **확률**은 불확실한 사건이 일어날 가능성에 대한 신뢰의 정도(degree of confidence)를 의미한다. 이는 특정 사건이 일어날 가능성에 대한 수치적 표현이다.
 
 **확률 이론**은 이러한 불확실한 사건들에 대한 추정치를 어떻게 정의하고 계산할 것인지에 대한 형식적 근거와 그들이 따라야 할 수학적 규칙을 다루는 학문이다.
 
-##### 2.1.1.1 사건 공간(Event Spaces)
+#### 2.1.1.1 사건 공간(Event Spaces)
 확률을 정의하기 전에 확률을 부여할 사건(event)이 무엇인지 정의해야 한다.  
 형식적으로, 사건을 정의하기 위해 **가능한 결과들의 공간**이 존재한다고 가정하며, 이 공간을 Ω로 표기한다.  
 예를 들어, 주사위를 생각해보면 가능한 모든 결과는 $Ω = \{1, 2, 3, 4, 5, 6\}$ 이 될 수 있다.  
@@ -31,7 +31,7 @@
 
 이러한 두 번째와 세 번째 조건을 만족하면, 사건 공간은 자동으로 교집합(Intersection)과 차집합(Set Difference)같은 다른 boolean 연산에 대해서도 닫혀 있게 된다.
 
-##### 2.1.1.2 확률 분포(Probability Distributions)
+#### 2.1.1.2 확률 분포(Probability Distributions)
 확률분포 $P$ 는 사건 공간 $(\Omega, S)$ 위에서 정의되는 함수로, 사건 $\alpha \in S$ 를 실수 값으로 대응시키며 다음의 조건들을 만족한다.
 - 각 사건의 확률: $P(\alpha) \ge 0 \quad \forall \alpha \in S$
 - 전체 사건의 확률: $P(\Omega) = 1$
@@ -40,7 +40,7 @@
 이 세 조건은 다른 여러 중요한 성질을 내포하며 다음이 성립한다.
 $P(\emptyset) = 0, \quad P(\alpha \cup \beta) = P(\alpha) + P(\beta) - P(\alpha \cap \beta)$
 
-##### 2.1.1.3 확률 해석(Interpretations of Probability)
+#### 2.1.1.3 확률 해석(Interpretations of Probability)
 확률에 어떤 의미를 부여할 수 있는지 살펴볼 수 있다.  
 직관적으로, 어떤 사건 $\alpha$ 의 확률 $P(\alpha)$ 는 그 사건이 일어날 것이라는 확신의 정도를 나타낸다. 만약 $P(\alpha) = 1$ 이라면, 우리는 그 사건이 반드시 일어난다고 확신하고, $P(\alpha) = 0$ 이라면, 그 사건은 불가능하다고 간주한다.  
 
@@ -67,8 +67,8 @@ $P(\emptyset) = 0, \quad P(\alpha \cup \beta) = P(\alpha) + P(\beta) - P(\alpha 
 이 책에서는 확률을 다룰 때 두 해석 중 어느 하나를 명시하지 않는다. 두 해석 모두 동일한 수학적 규칙을 따르기 때문이다.  
 즉, 빈도주의와 주관주의는 철학적 접근이 다를 뿐, 확률의 수학적 정의와 계산법에는 동일하게 적용된다.
 
-#### 2.1.2 Basic Concepts in Probability
-##### 2.1.2.1 조건부 확률(Conditional Probability)
+### 2.1.2 Basic Concepts in Probability
+#### 2.1.2.1 조건부 확률(Conditional Probability)
 구체적인 예를 들어서, 어떤 과목을 수강하는 학생들의 모집단에 대한 확률분포를 고려한다고 하자. 이 경우 가능한 결과의 공간은 단순히 “모든 학생들의 집합”이다.
 
 이제 학생들의 지능과 최종 성적에 대해 추론하고 싶다고 하자.  
@@ -99,7 +99,7 @@ $P(\emptyset) = 0, \quad P(\alpha \cup \beta) = P(\alpha) + P(\beta) - P(\alpha 
     따라서, 조건부 확률은 하나의 분포를 입력받아, 같은 확률 공간 위에서 또 다른 분포를 반환하는 연산자로 볼 수 있다.
 
 
-##### 2.1.2.2 연쇄 법칙/베이즈 법칙(Chain Rule and Bayes Rule)
+#### 2.1.2.2 연쇄 법칙/베이즈 법칙(Chain Rule and Bayes Rule)
 조건부 확률의 정의로부터 다음 관계를 즉시 얻을 수 있다.
 $P(\alpha \cap \beta) = P(\alpha) P(\beta \mid \alpha)$
 
@@ -153,8 +153,8 @@ $P(\alpha_1 \cap \alpha_2 \cap ... \cap \alpha_k) = P(\alpha_1) P(\alpha_2 \mid 
 베이즈 법칙은 의료 진단, 스팸 탐지, 신용 평가 등 현대 AI와 데이터 과학의 핵심적 도구이다.  
 예를 들어, 질병 진단에서 테스트 결과가 양성일 때 실제로 질병이 존재할 확률을 베이즈 법칙을 통해 계산할 수 있으며, 이는 단순한 직관적 확률이 아닌, 사전 확률과 조건부 관계를 반영한 **합리적 추론(rational inference)** 이라고 할 수 있다.
 
-#### 2.1.3 Random Variables and Joint Distributions
-##### 2.1.3.1 Motivation
+### 2.1.3 Random Variables and Joint Distributions
+#### 2.1.3.1 Motivation
 계속 이야기해온 확률분포는 사건을 중심으로 정의되었다.  
 형식적으로, 확률이 정의되는 대상은 측정 가능한 사건(measurable events)의 집합에 속하는 임의의 사건으로, 사건은 결과의 집합으로 기술된다. 
 하지만 실제 문제에서는 결과 자체보다 **결과의 속성(attribute)** 에 초점을 두는 것이 더 자연스럽다.  
@@ -175,7 +175,7 @@ P(\text{Grade} = A)$는 “A 학점을 받은 학생일 확률”을 의미하�
 
 따라서, 확률변수는 사건을 속성 기반으로 더 체계적이고 수학적으로 표현할 수 있게 해주며, 복잡한 확률 공간을 **속성 중심(attribute-centered)** 으로 다룰 수 있는 강력한 도구가 된다.
 
-##### 2.1.3.2 What Is a Random Variable?
+#### 2.1.3.2 What Is a Random Variable?
 확률변수는 결과 공간 Ω의 각 결과에 하나의 값을 대응시키는 함수로 정의되며, 확률변수의 유형은 다음과 같다.
 
 - **이산형 확률변수 (Categorical/Discrete Random Variable)**: 한정된 개수의 값을 가짐 (예: {A, B, C}, {true, false})
@@ -209,7 +209,7 @@ P(\text{Grade} = A)$는 “A 학점을 받은 학생일 확률”을 의미하�
 - 모든 가능한 값에 대해 합산할 때는 $\sum_x P(x) = 1$
 - 복수 변수의 결합 확률은 $P((X=x) \cap (Y=y)) = P(X=x, Y=y) = P(x, y)$
 
-##### 2.1.3.3 주변 확률분포/결합 확률분포(Marginal and Joint Distributions)
+#### 2.1.3.3 주변 확률분포/결합 확률분포(Marginal and Joint Distributions)
 확률변수 $X$가 정의되면, $X$로 표현되는 사건들에 대한 분포를 고려할 수 있다. 이 분포를 **주변 확률분포(marginal distribution)** 라고 하며, 보통 $P(X)$로 표기한다.
 
 - **주변 확률분포 (Marginal Distribution)**  
@@ -241,7 +241,7 @@ P(\text{Grade} = A)$는 “A 학점을 받은 학생일 확률”을 의미하�
 
 결론적으로, 이후의 논의에서는 더 이상 원래의 결과 공간 $\Omega$ 를 명시적으로 다루지 않고, 각 변수들의 가능한 조합(예: Intelligence, Grade)에 기반한 **정규화된 결과 공간(canonical outcome space)** 에서 확률을 다루게 된다.
 
-##### 2.1.3.4 조건부 확률(Conditional Probability)
+#### 2.1.3.4 조건부 확률(Conditional Probability)
 조건부 확률의 개념은 확률변수에 대한 유도 분포(induced distribution)로 확장된다.   
 $P(\text{Intelligence} \mid \text{Grade} = A)$는 “학생의 성적이 A임을 알았을 때, 지능 수준에 대한 조건부 확률분포”를 의미한다.
 
@@ -262,29 +262,29 @@ $P(\text{Intelligence} \mid \text{Grade} = A)$는 “학생의 성적이 A임을
 다음과 같이 베이즈 정리를 얻을 수 있다: $P(X \mid Y) = \frac{P(X) P(Y \mid X)}{P(Y)}$  
 이는 “원인에 대한 사전 확률(prior)”과 “관찰된 결과에 대한 우도(likelihood)”를 결합하여 “관찰 후의 갱신된 확률(posterior)”을 계산하는 방식이다.
 
-#### 2.1.4 Independence and Conditional Independence
-##### 2.1.4.1 Independece
-##### 2.1.4.2 Conditional Independence
-##### 2.1.4.3 Independence of Random Variables
+### 2.1.4 Independence and Conditional Independence
+#### 2.1.4.1 Independece
+#### 2.1.4.2 Conditional Independence
+#### 2.1.4.3 Independence of Random Variables
 
 --
 
-#### 2.1.5 Querying a Distribution
-##### 2.1.5.1 Probability Queries
-##### 2.1.5.2 MAP Queries
-##### 2.1.5.3 Marginal MAP Queries
+### 2.1.5 Querying a Distribution
+#### 2.1.5.1 Probability Queries
+#### 2.1.5.2 MAP Queries
+#### 2.1.5.3 Marginal MAP Queries
 
 --
 
-#### 2.1.6 Continous Spaces
-##### 2.1.6.1 Probability Density Functions
-##### 2.1.6.2 Joint Density Functions
-##### 2.1.6.3 Conditional Density Functions
+### 2.1.6 Continous Spaces
+#### 2.1.6.1 Probability Density Functions
+#### 2.1.6.2 Joint Density Functions
+#### 2.1.6.3 Conditional Density Functions
 
 --
 
-#### 2.1.7 Expectation and Variance
-##### 2.1.7.1 Expectation
-##### 2.1.7.2 Variance
+### 2.1.7 Expectation and Variance
+#### 2.1.7.1 Expectation
+#### 2.1.7.2 Variance
 
 --
