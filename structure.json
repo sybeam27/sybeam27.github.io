@@ -3,10 +3,12 @@
     {"type":"file","name":"index.html"},
     {"type":"directory","name":"probabilistic_graphical_models","contents":[
       {"type":"directory","name":"chapter01","contents":[
-        {"type":"file","name":"index.html"}
+        {"type":"file","name":"index.html"},
+        {"type":"file","name":"notes.md"}
       ]},
       {"type":"directory","name":"chapter02","contents":[
-        {"type":"file","name":"index.html"}
+        {"type":"file","name":"index.html"},
+        {"type":"file","name":"notes.md"}
       ]},
       {"type":"file","name":"index.html"}
     ]},
@@ -14,5 +16,5 @@
     {"type":"file","name":"structure.json"}
   ]}
 ,
-  {"type":"report","directories":4,"files":6}
+  {"type":"report","directories":4,"files":8}
 ]
