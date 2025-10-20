@@ -1,19 +1,18 @@
 [
   {"type":"directory","name":".","contents":[
     {"type":"file","name":"index.html"},
+    {"type":"directory","name":"probabilistic_graphical_models","contents":[
+      {"type":"directory","name":"chapter01","contents":[
+        {"type":"file","name":"index.html"}
+      ]},
+      {"type":"directory","name":"chapter02","contents":[
+        {"type":"file","name":"index.html"}
+      ]},
+      {"type":"file","name":"index.html"}
+    ]},
     {"type":"file","name":"README.md"},
-    {"type":"file","name":"structure.json"},
-    {"type":"directory","name":"tutoring","contents":[
-      {"type":"directory","name":"probabilistic_graphical_models","contents":[
-        {"type":"directory","name":"chapter01","contents":[
-          {"type":"file","name":"index.html"}
-        ]},
-        {"type":"directory","name":"chapter02","contents":[
-          {"type":"file","name":"index.html"}
-        ]}
-      ]}
-    ]}
+    {"type":"file","name":"structure.json"}
   ]}
 ,
-  {"type":"report","directories":5,"files":5}
+  {"type":"report","directories":4,"files":6}
 ]
