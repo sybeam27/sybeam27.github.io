@@ -155,11 +155,112 @@ $P(\alpha_1 \cap \alpha_2 \cap ... \cap \alpha_k) = P(\alpha_1) P(\alpha_2 \mid 
 
 #### 2.1.3 Random Variables and Joint Distributions
 ##### 2.1.3.1 Motivation
-##### 2.1.3.2 What Is a Random Variable?
-##### 2.1.3.3 Marginal and Joint Distributions
-##### 2.1.3.4 Conditional Probability
+계속 이야기해온 확률분포는 사건을 중심으로 정의되었다.  
+형식적으로, 확률이 정의되는 대상은 측정 가능한 사건(measurable events)의 집합에 속하는 임의의 사건으로, 사건은 결과의 집합으로 기술된다. 
+하지만 실제 문제에서는 결과 자체보다 **결과의 속성(attribute)** 에 초점을 두는 것이 더 자연스럽다.  
 
---
+- Example: 학생 성적 분포  
+    이전에 살펴본 학생 모집단의 예시에서 학생의 지능, 최종 성적 등과 같은 속성에 대해 추론하고자 한다.  
+
+    이전 접근에서는 $\text{GradeA}$ 를 “A 학점을 받은 학생들의 집합”으로 정의하고, 이를 이용해 사건 $P(\text{GradeA})$ 를 표현했다.  
+
+    하지만 만약 B 학점, C 학점 등 여러 등급을 동시에 고려해야 한다면, 각각을 별도의 사건으로 정의해야 하므로 수식이 매우 복잡해진다. 이러한 비효율을 피하기 위해 보다 깔끔하고 수학적인 표현 방식이 필요하다.
+
+이 문제를 해결하기 위해 사용하는 개념이 **확률변수(Random Variable)** 이다.   
+확률변수는 결과(outcome)의 **속성을 수치나 기호로 표현하는 함수**이다. 
+즉, 확률변수는 “결과의 어떤 속성값을 보고하는 도구”라고 할 수 있다. 
+
+$\text{Grade}$: 학생의 최종 성적을 나타내는 확률변수라 하면, $
+P(\text{Grade} = A)$는 “A 학점을 받은 학생일 확률”을 의미하며, 이는 이전 표기 $P(\text{GradeA})$ 와 동일하다.
+
+따라서, 확률변수는 사건을 속성 기반으로 더 체계적이고 수학적으로 표현할 수 있게 해주며, 복잡한 확률 공간을 **속성 중심(attribute-centered)** 으로 다룰 수 있는 강력한 도구가 된다.
+
+##### 2.1.3.2 What Is a Random Variable?
+확률변수는 결과 공간 Ω의 각 결과에 하나의 값을 대응시키는 함수로 정의되며, 확률변수의 유형은 다음과 같다.
+
+- **이산형 확률변수 (Categorical/Discrete Random Variable)**: 한정된 개수의 값을 가짐 (예: {A, B, C}, {true, false})
+- **연속형 확률변수 (Continuous Random Variable)**: 무한한 값(예: 실수, 키, 체중 등)을 가짐
+
+확률변수 X가 가질 수 있는 모든 값의 집합을 $\text{Val}(X)$로 표기한다.
+- 대문자 $X, Y, Z$ : 확률변수(Random Variables)  
+- 소문자 $x, y, z$ : 해당 변수의 값(Value of Random Variable)  
+    예) “$P(X=x) \ge 0$ for all $x \in \text{Val}(X)$”
+- $x_1, ..., x_k$: 확률변수 X가 취할 수 있는 k개의 가능한 값  
+  예를 들어, $\sum_{i=1}^{k} P(X = x_i) = 1$
+
+확률분포의 예시는 다음과 같다.
+- **다항분포 (Multinomial Distribution)**: 여러 범주형 값에 대한 확률분포  
+- **베르누이 분포 (Bernoulli Distribution)**: 이진 변수 ($\text{Val}(X)=\{\text{false},\text{true}\}$)의 확률분포  
+  - $x_1$: true  
+  - $x_0$: false
+
+##### 표기 정리
+- 확률변수는 “결과를 수학적으로 표현하는 함수”  
+- 이산형과 연속형으로 구분됨  
+- $P(X=x)$ 형태로 확률분포와 함께 사용됨  
+
+- **굵은 문자(예: $\mathbf{X}, \mathbf{Y}$)** 는 확률변수의 집합을 의미함  
+- **소문자 굵은 문자(예: $\mathbf{x}, \mathbf{y}$)** 는 각 변수 집합의 값에 대한 assignment을 의미함  
+- $x \in \text{Val}(X)$  
+- $x\langle Y \rangle$: $x$가 집합 $Y$에 속한 변수들에 대해 갖는 값만 추출  
+- 두 할당 $x, y$가 공통 변수에 대해 동일할 때 $x \sim y$ 로 표기  
+  $x\langle X \cap Y \rangle = y\langle X \cap Y \rangle$
+- $P(X=x)$ 대신 $P(x)$ 로 간단히 표기 가능 (변수가 명확할 때)
+- 모든 가능한 값에 대해 합산할 때는 $\sum_x P(x) = 1$
+- 복수 변수의 결합 확률은 $P((X=x) \cap (Y=y)) = P(X=x, Y=y) = P(x, y)$
+
+##### 2.1.3.3 주변 확률분포/결합 확률분포(Marginal and Joint Distributions)
+확률변수 $X$가 정의되면, $X$로 표현되는 사건들에 대한 분포를 고려할 수 있다. 이 분포를 **주변 확률분포(marginal distribution)** 라고 하며, 보통 $P(X)$로 표기한다.
+
+- **주변 확률분포 (Marginal Distribution)**  
+    확률변수 **Intelligence** 에 대해 다음과 같은 확률이 주어진다고 하자.   
+    $P(\text{Intelligence} = \text{high}) = 0.3, \quad P(\text{Intelligence} = \text{low}) = 0.7$  
+    이는 “학생의 지능 수준”이라는 단일 변수에 대한 확률분포로, 그 자체로 완전한 확률분포(모든 확률의 합이 1)를 이룬다.
+
+    마찬가지로, 확률변수 **Grade** 에 대해서도 다음과 같은 주변 확률분포를 정의할 수 있다.  
+    $P(\text{Grade} = A) = 0.25, \quad  
+    P(\text{Grade} = B) = 0.37, \quad  
+    P(\text{Grade} = C) = 0.38 $
+
+    즉, 주변 확률분포는 “한 변수에 대한 확률 분포”이며, 전체 확률 공간에서 해당 변수와 관련된 사건만 고려한다.
+
+- **결합 확률분포 (Joint Distribution)**  
+    실제 문제에서는 여러 변수 간의 관계가 중요하다. 예를 들어, “지능이 높고(Intelligence=high) 성적이 A인(Grade=A) 학생”의 확률을 구하고 싶을 때, 이를 위해서는 결합 확률분포를 사용한다.
+    
+    결합 분포는 여러 확률변수의 조합에 대한 확률을 나타내며, 보통 다음과 같이 표현된다. $P(X_1, X_2, \dots, X_n)$  
+    여기서 $\xi \in \text{Val}(X)$ 는 각 변수들의 전체 값 assignment을 의미한다.
+
+- **주변화 관계 (Marginalization)**  
+    결합 확률분포와 주변 확률분포는 서로 일관성을 유지해야 한다. 
+    즉, 주변 확률분포는 결합 분포에서 다른 변수들을 “합쳐서(summing out)” 얻을 수 있다.  
+    $P(x) = \sum_y P(x, y)$
+
+    이는 그림 2.1에서 행 또는 열 기준으로 확률을 합산하는 형태로 표현된다. 이렇게 합산된 결과가 표의 “margins(가장자리)”에 표시되기 때문에 주변 확률분포라 부른다.  
+    각 셀은 결합 확률 $P(\text{Intelligence}, \text{Grade})$ 를 나타내고 각 행 또는 열을 더한 값이 주변 확률 $P(\text{Grade})$, $P(\text{Intelligence})$ 가 된다.
+  $$
+
+결론적으로, 이후의 논의에서는 더 이상 원래의 결과 공간 $\Omega$ 를 명시적으로 다루지 않고, 각 변수들의 가능한 조합(예: Intelligence, Grade)에 기반한 **정규화된 결과 공간(canonical outcome space)** 에서 확률을 다루게 된다.
+
+##### 2.1.3.4 조건부 확률(Conditional Probability)
+조건부 확률의 개념은 확률변수에 대한 유도 분포(induced distribution)로 확장된다.   
+$P(\text{Intelligence} \mid \text{Grade} = A)$는 “학생의 성적이 A임을 알았을 때, 지능 수준에 대한 조건부 확률분포”를 의미한다.
+
+이때 조건부 확률분포는 주변 확률분포와 다르다.  
+- $P(\text{Intelligence} = \text{high}) = 0.3$  
+- $P(\text{Intelligence} = \text{high} \mid \text{Grade} = A) = \frac{0.18}{0.25} = 0.72$
+
+즉, 성적이 A라는 정보를 얻은 후의 확률은 기존 사전 확률(prior)과 다르다.  
+- **주변 확률(P(Intelligence))**: 학생에 대해 아무 정보가 없을 때의 일반적 믿음  
+- **조건부 확률(P(Intelligence | Grade=A))**: 특정 정보를 알고 난 후의 업데이트된 믿음
+
+##### 표기 정리
+보통 $P(X \mid Y)$ 는 Y의 값이 주어졌을 때 X의 확률분포 전체를 의미한다. 즉, Y의 각 값에 대해 X의 모든 가능한 값에 대한 확률이 정의된다.
+
+이 표기법을 이용하면 연쇄 법칙을 간단히 쓸 수 있다: $P(X, Y) = P(X) P(Y \mid X)$  
+이를 다수의 변수로 확장하면, $P(X_1, X_2, ..., X_k) = P(X_1) P(X_2 \mid X_1) \cdots P(X_k \mid X_1, ..., X_{k-1})$
+
+다음과 같이 베이즈 정리를 얻을 수 있다: $P(X \mid Y) = \frac{P(X) P(Y \mid X)}{P(Y)}$  
+이는 “원인에 대한 사전 확률(prior)”과 “관찰된 결과에 대한 우도(likelihood)”를 결합하여 “관찰 후의 갱신된 확률(posterior)”을 계산하는 방식이다.
 
 #### 2.1.4 Independence and Conditional Independence
 ##### 2.1.4.1 Independece
