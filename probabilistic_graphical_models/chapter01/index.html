@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <title>Chapter Viewer</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- ✅ MathJax 추가 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
   <style>
     :root {
       --bg: #fafafa;
@@ -82,14 +95,14 @@
   <div id="content">📄 Loading markdown...</div>
 
   <script>
-    // 다크모드 전환
+    // 🌙 다크모드 전환
     const btn = document.getElementById('themeToggle');
     btn.addEventListener('click', () => {
       document.body.classList.toggle('dark');
       btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
     });
 
-    // Markdown 로드
+    // 📘 Markdown + MathJax 렌더링
     fetch('notes.md')
       .then(res => {
         if (!res.ok) throw new Error("Markdown 파일을 찾을 수 없습니다.");
@@ -97,6 +110,8 @@
       })
       .then(text => {
         document.getElementById('content').innerHTML = marked.parse(text);
+        // ✅ MathJax 렌더링 실행
+        if (window.MathJax) MathJax.typesetPromise();
       })
       .catch(err => {
         document.getElementById('content').innerHTML = `<p style="color:red;">⚠️ ${err.message}</p>`;
