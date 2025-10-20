@@ -2,15 +2,16 @@
 이 chapter의 목적은 해당 분야의 포괄적인 개요를 제공하려는 것이 아니라,
 책의 나머지 부분을 이해하는 데 필요한 핵심 아이디어의 최소한의 집합을 소개하는 것이다.
 
-이 장에서는 **확률이론(probability theory), 정보이론(information theory), 그리고 그래프이론(graph theory)**의 핵심 개념과 관련된 중요한 배경 지식을 다룬다.
+이 장에서는 __확률 이론, 정보 이론, 그리고 그래프 이론__의 핵심 개념과 관련된 중요한 배경 지식을 다룬다.
 
 그 외의 배경 지식 (ex. 이산 및 연속 최적화, 알고리즘 복잡도 분석, 기본 알고리즘 개념 등)은 특정 주제에 더 밀접하게 연관되어 있다. 이러한 개념들 중 일부는 부록에서 다루며, 일부는 본문 내 concept box에 제시된다.
 
 -- 
 
-### 2.1 Probability Theory
+### 2.1 확률 이론(Probability Theory)
+이 책의 주요 초점은 복잡한 확률 분포(complex probability distributions)에 있으며, 다음은 확률 이론의 기본 개념을 복습하는 내용이다.
 
-#### 2.1.1 Probability Distributions
+#### 2.1.1 확률 분포(Probability Distributions)
 ##### 2.1.1.1 Event Spaces
 ##### 2.1.1.2 Probability Distributions
 ##### 2.1.1.3 Interpretations of Probability
