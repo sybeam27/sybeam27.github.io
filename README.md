@@ -1,57 +1,34 @@
 # Soyoung Park — Academic homepage
 
-빌드 도구나 설치 과정 없이 GitHub Pages에서 제공하는 정적 홈페이지입니다.
+별도 빌드나 JavaScript 없이 동작하는 정적 다중 페이지 홈페이지입니다.
 
-## 로컬에서 보기
+## 페이지
 
-저장소 폴더에서 실행한 뒤 `http://localhost:8000`을 여세요.
+- `index.html`: About, 소개와 연구 관심사, 연락처
+- `publications.html`: 연도별 국제/국내 논문과 대표 썸네일
+- `experience.html`: 연구 경력, 산업·공공 프로젝트, 학력
+- `awards.html`: 수상·장학금
+- `etc.html`: 튜터링 및 기타 자료
+- `cv.html`: CV (PDF 준비 후 다운로드 링크 추가)
+- `assets/css/style.css`: 모든 페이지 공통 스타일
+- `CONTENT_CHECKLIST.md`: 항목별 필요한 자료
+
+메뉴는 실제 HTML 페이지로 이동하며 현재 페이지는 `aria-current="page"`로 표시됩니다. 메뉴를 바꾸려면 여섯 페이지의 공통 헤더를 함께 수정하세요.
+
+## 로컬 확인
 
 ```sh
 python3 -m http.server 8000
 ```
 
-## 디자인 방향
+`http://localhost:8000`에서 확인하세요. `master` 브랜치에 푸시하면 기존 GitHub Pages 설정으로 배포됩니다.
 
-DLI 홈페이지의 밝은 배경, 파란색 포인트, 단정한 산세리프 제목과 상단 메뉴를 참고했습니다. 개인 연구 철학 문구의 세리프 서체와 세로 사진은 유지했습니다.
+## 자료 출처와 미확인 정보
 
-## 수정할 파일
+연구 관심사와 연구 철학은 사용자가 제공한 대화, 논문 목록 및 프로젝트 맥락은 [개인 노션](https://so-young.notion.site/SoYoung-Park-Portfolio-173436f842eb80578cd9f85be574829e)을 참고했습니다. 현재 직함은 사용자 제공 대화의 Postdoctoral Researcher를 사용하며 노션의 과거 박사과정 소개는 옮기지 않았습니다.
 
-- `index.html`: 소개, 연구 방향, 논문, 경력, 프로필 링크
-- `assets/css/style.css`: 색상, 글꼴, 모바일 레이아웃
-- `assets/images/profile.jpg`: 홈페이지용 사진 (원본 졸업사진 보존)
-- `favicon.svg`: 브라우저 아이콘
-- `probabilistic_graphical_models/`: 홈페이지 하단 `Etc`에서 연결하는 기존 튜터링 자료. 경로와 내용 유지
-- `structure.json`: 튜터링 챕터 목록
+ICML 2026 썸네일은 [DISL Publications](https://disl-lab.github.io/publications/)의 `https://disl-lab.github.io/assets/img/paper/26-icml-soyoung.png`입니다. 나머지 그림과 미확인 Paper/Code 링크는 추가하지 않았습니다. `.publication-row`를 복제해 논문을 추가하고 `.thumbnail-placeholder`를 실제 이미지 링크로 교체하세요. 그림은 `object-fit: contain`으로 전체가 보입니다.
 
-홈페이지는 JavaScript나 외부 폰트 없이 작동합니다. 기존 튜터링 페이지는 기존대로 marked와 MathJax를 사용합니다.
+사진 원본과 기존 `probabilistic_graphical_models/`, `structure.json`은 유지했습니다. 튜터링 자료는 Etc에서 연결하며 기존대로 marked와 MathJax를 사용합니다.
 
-## 확인 후 채울 정보
-
-첨부 대화에서 확인된 이름, Postdoctoral Researcher 직함, 연구 관심사와 연구 철학을 반영했습니다. 논문 1편은 DISL 공개 목록에서 확인해 추가했으며, 미확인 논문과 상세 경력은 임의로 추가하지 않았습니다. `index.html`의 `TODO` 주석을 검색해 아래 정보를 입력하세요.
-
-- 현재 소속과 재직 기간
-- 대표 논문 제목, 저자 순서, 학회/저널, 연도, 논문·코드 URL
-- 이전 경력의 기관, 직책, 기간
-- Google Scholar, ORCID, 이메일 주소 (미확인 항목은 링크를 만들지 않음)
-- CV 파일: `assets/cv/Soyoung_Park_CV.pdf`를 추가하고 `#cv` 안내를 다운로드 링크로 교체
-
-## 논문 썸네일 구성
-
-`index.html`의 `.publication-row`를 복제해 논문을 추가합니다. 연도별로 `.publication-year`를 두고 최신 순으로 배치합니다.
-
-- 왼쪽: `assets/images/publications/`에 저장한 대표 그림. 전체 그림이 보이도록 `object-fit: contain` 적용
-- 오른쪽: 학회·연도 배지, 연구 주제, 논문 제목, 저자, 학회/저널명, 확인된 링크
-- 본인 이름은 `<strong>Soyoung Park</strong>`으로 강조
-- 모바일에서는 그림 위 / 서지 정보 아래로 배치
-- 이미지 클릭으로 원본 그림 확인 가능
-- Paper / Code는 실제 URL이 확인된 경우에만 추가
-
-현재 ICML 2026 논문과 썸네일은 [DISL Publications](https://disl-lab.github.io/publications/)의 Soyoung Park 항목을 참고했습니다. 원본 이미지: `https://disl-lab.github.io/assets/img/paper/26-icml-soyoung.png`. 논문·코드 직접 링크는 해당 목록에 없어 아직 추가하지 않았습니다.
-
-## 튜터링 챕터 추가
-
-기존 `probabilistic_graphical_models/chapter01/` 구조를 참고해 새 챕터 폴더에 `index.html`과 `notes.md`를 추가하고, `structure.json`의 해당 폴더 목록에도 등록합니다.
-
-## 게시
-
-변경 사항을 검토하고 저장소의 GitHub Pages 게시 브랜치에 반영하면 됩니다. 현재 게시 브랜치는 `master`입니다. 해당 브랜치로 푸시한 후 GitHub Pages 배포가 완료되면 공개 사이트에 반영됩니다.
+추가 제공된 `CV_Soyoung Park.pdf`에서 산업 경력·학력·수상·발표를 반영했습니다. CV 상단의 박사과정 직함은 최신 여부가 불명확해 PDF 공개 링크는 아직 연결하지 않았습니다. 박사학위 수여 여부는 단정하지 않습니다.
