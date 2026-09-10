@@ -53,3 +53,10 @@ Official institution sites; marks identify the associated institution, not an en
 - All eight international Code links were matched to repository titles/authors. The owner's public repository list was checked via the GitHub API.
 - ICML QpiGNN retains its arXiv link because an official proceedings page was not found.
 - KDBC 2023 and 2025 paper URLs and domestic-specific code repositories could not be verified in public search; no inferred links were added.
+
+## Background and Projects update
+- Research projects and program periods transcribed from the owner-supplied CV. Program/project periods are distinguished from personal participation dates.
+- Official CNU English wordmark: embedded SVG in https://plus.cnu.ac.kr/css/en/2024/acego.layout.min.css?ver=20260814 (English homepage header).
+- Official JBNU English wordmark: https://www.jbnu.ac.kr/resources/user/web/img/icon/icon_logo_eng_blue.svg
+- Mobigen corporate wordmark: https://www.mobigen.com/images/logo.png (replaces Graphio product logo).
+- Sure Data wordmark: https://suredatalab.com/site/imgs/h1.png (white wordmark displayed on dark background).
