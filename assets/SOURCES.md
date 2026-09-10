@@ -42,3 +42,14 @@ Official institution sites; marks identify the associated institution, not an en
 - InnoCORE program: https://www.innocore.or.kr/unist
 - Layout reference: https://tuanluu.github.io/index.html
 - `favicon.svg`: simplified pink Loopy face drawn as a small SVG at the owner's request; not an official character asset.
+
+## Publication link review (2026-09-10)
+
+- AAAI MV-LLMRec Student Abstract track: https://ojs.aaai.org/index.php/AAAI/article/view/42280
+- PAKDD official chapter (preferred over arXiv): https://doi.org/10.1007/978-981-96-8186-0_6
+- PeerJ code, owner repository: https://github.com/sybeam27/Periodic-Event-Graphs
+- KSC 2024 NQR-GNN paper: https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12041865
+- KSC 2024 road anomaly segmentation paper: https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12041854
+- All eight international Code links were matched to repository titles/authors. The owner's public repository list was checked via the GitHub API.
+- ICML QpiGNN retains its arXiv link because an official proceedings page was not found.
+- KDBC 2023 and 2025 paper URLs and domestic-specific code repositories could not be verified in public search; no inferred links were added.
