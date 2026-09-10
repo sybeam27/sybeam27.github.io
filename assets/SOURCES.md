@@ -71,3 +71,5 @@ Official institution sites; marks identify the associated institution, not an en
 - CNU symbol uses the emblem region of the previously sourced official English SVG; CNU and JBNU emblems share a 36px display size.
 
 - `assets/images/loopy.png`: original Loopy PNG supplied by the owner, used unchanged for the header and favicon. Replaces the previously drawn favicon.
+
+- CNU and JBNU signature PNGs supplied by the owner on September 10–11, 2026. JBNU is displayed through an SVG viewport showing only the bottom English signature; the supplied bitmap is preserved.

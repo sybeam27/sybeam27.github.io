@@ -151,3 +151,6 @@ li { margin-bottom: 8px; }
 
 .wordmark { display: inline-flex; align-items: center; gap: 10px; }
 .brand-loopy { display: block; width: 36px; height: 36px; object-fit: contain; flex: none; }
+
+.record-aside .university-signature img { width: 88px; height: 40px; object-fit: contain; }
+.university-signature-crop { display: block; width: 88px; height: auto; overflow: hidden; }
