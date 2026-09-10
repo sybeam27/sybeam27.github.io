@@ -148,3 +148,6 @@ li { margin-bottom: 8px; }
   .profile-links { gap: 8px 18px; }
   .news-list li { grid-template-columns: 1fr; gap: 2px; margin-bottom: 16px; }
 }
+
+.wordmark { display: inline-flex; align-items: center; gap: 10px; }
+.brand-loopy { display: block; width: 36px; height: 36px; object-fit: contain; flex: none; }

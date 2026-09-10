@@ -69,3 +69,5 @@ Official institution sites; marks identify the associated institution, not an en
 
 - 2026 CNU Research Fair year correction and new CNU Outstanding Research Award supplied by the owner. News summarizes confirmed profile, publications, presentations and awards; unspecified award months remain year-only.
 - CNU symbol uses the emblem region of the previously sourced official English SVG; CNU and JBNU emblems share a 36px display size.
+
+- `assets/images/loopy.png`: original Loopy PNG supplied by the owner, used unchanged for the header and favicon. Replaces the previously drawn favicon.
