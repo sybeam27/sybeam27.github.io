@@ -94,3 +94,7 @@ About → Publications → Background → Etc → CV 순서의 독립 HTML 페�
 - [x] CKAIA 2026 국내 논문 및 2026-08-07 국제학회 성과 공유 세션 발표 추가
 - [ ] CKAIA 2026 논문 전체 저자 순서와 기여 표시 확인
 - [x] Publications International / Domestic 바로가기 및 프로필 사진 중앙 배치
+
+- [x] 로고 별도 텍스트 삭제, 크기 축소, 전북대 공식 영문 엠블럼 적용
+- [x] Projects → Background 메뉴 순서, CV 탭 제거 및 About에서 PDF 새 탭 열기
+- [x] 연구 프로젝트별 CNU Data Intelligence Lab / Prof. Sungsu Lim 표기, Programs 마지막 배치

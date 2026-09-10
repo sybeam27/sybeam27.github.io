@@ -10,11 +10,11 @@
 - `experience.html`, `awards.html`: 기존 주소에서 Background로 이동
 - `projects.html`: 연구 프로젝트, BK21 프로그램, 산업 프로젝트
 - `etc.html`: Background의 튜터링 섹션으로 이동
-- `cv.html`: 제공된 CV PDF 다운로드
+- `cv.html`: 기존 주소에서 CV PDF로 이동 (메뉴에서 제외)
 - `assets/css/style.css`: 모든 페이지 공통 스타일
 - `CONTENT_CHECKLIST.md`: 항목별 필요한 자료
 
-메뉴는 실제 HTML 페이지로 이동하며 현재 페이지는 `aria-current="page"`로 표시됩니다. 메뉴를 바꾸려면 다섯 주요 페이지의 공통 헤더를 함께 수정하세요.
+메뉴는 실제 HTML 페이지로 이동하며 현재 페이지는 `aria-current="page"`로 표시됩니다. 메뉴를 바꾸려면 네 주요 페이지의 공통 헤더를 함께 수정하세요.
 
 ## 로컬 확인
 
@@ -37,3 +37,5 @@ ICML 2026 썸네일은 [DISL Publications](https://disl-lab.github.io/publicatio
 그림과 기관 로고의 유지보수용 출처는 `assets/SOURCES.md`에 기록합니다. 공개 Publications 화면에는 별도 출처 문구를 표시하지 않으며, 썸네일을 클릭하면 그림을 확대합니다.
 
 Projects are listed in `projects.html`; teaching, presentations, and skills are in `background.html`. `etc.html` redirects to Background. Publication figures open in a native dialog, with image links as the JavaScript-free fallback.
+
+Navigation: About → Publications → Projects → Background. About links directly to the CV PDF in a new tab, without the HTML download attribute. Projects sections: Research → Industry → Programs.
