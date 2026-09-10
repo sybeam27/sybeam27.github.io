@@ -27,7 +27,7 @@ DLI 홈페이지의 밝은 배경, 파란색 포인트, 단정한 산세리프 �
 
 ## 확인 후 채울 정보
 
-첨부 대화에서 확인된 이름, Postdoctoral Researcher 직함, 연구 관심사와 연구 철학을 반영했습니다. 기존 저장소에는 논문과 상세 경력 정보가 없어 임의로 추가하지 않았습니다. `index.html`의 `TODO` 주석을 검색해 아래 정보를 입력하세요.
+첨부 대화에서 확인된 이름, Postdoctoral Researcher 직함, 연구 관심사와 연구 철학을 반영했습니다. 논문 1편은 DISL 공개 목록에서 확인해 추가했으며, 미확인 논문과 상세 경력은 임의로 추가하지 않았습니다. `index.html`의 `TODO` 주석을 검색해 아래 정보를 입력하세요.
 
 - 현재 소속과 재직 기간
 - 대표 논문 제목, 저자 순서, 학회/저널, 연도, 논문·코드 URL
@@ -35,21 +35,18 @@ DLI 홈페이지의 밝은 배경, 파란색 포인트, 단정한 산세리프 �
 - Google Scholar, ORCID, 이메일 주소 (미확인 항목은 링크를 만들지 않음)
 - CV 파일: `assets/cv/Soyoung_Park_CV.pdf`를 추가하고 `#cv` 안내를 다운로드 링크로 교체
 
-논문 정보가 준비되면 `#publications`의 `.empty-state`를 아래 구조의 행으로 교체합니다. 대괄호 항목은 실제 확인된 정보로 바꾸고, 코드가 공개되지 않았다면 Code 링크는 생략하세요.
+## 논문 썸네일 구성
 
-```html
-<article class="publication-row">
-  <div class="small-label">[Venue] · [Year]</div>
-  <div>
-    <h3>[Verified paper title]</h3>
-    <p>[Authors in order, with <strong>Soyoung Park</strong> emphasized]</p>
-    <div class="publication-links">
-      <a class="text-link" href="[Paper URL]">Paper ↗</a>
-      <a class="text-link" href="[Code URL]">Code ↗</a>
-    </div>
-  </div>
-</article>
-```
+`index.html`의 `.publication-row`를 복제해 논문을 추가합니다. 연도별로 `.publication-year`를 두고 최신 순으로 배치합니다.
+
+- 왼쪽: `assets/images/publications/`에 저장한 대표 그림. 전체 그림이 보이도록 `object-fit: contain` 적용
+- 오른쪽: 학회·연도 배지, 연구 주제, 논문 제목, 저자, 학회/저널명, 확인된 링크
+- 본인 이름은 `<strong>Soyoung Park</strong>`으로 강조
+- 모바일에서는 그림 위 / 서지 정보 아래로 배치
+- 이미지 클릭으로 원본 그림 확인 가능
+- Paper / Code는 실제 URL이 확인된 경우에만 추가
+
+현재 ICML 2026 논문과 썸네일은 [DISL Publications](https://disl-lab.github.io/publications/)의 Soyoung Park 항목을 참고했습니다. 원본 이미지: `https://disl-lab.github.io/assets/img/paper/26-icml-soyoung.png`. 논문·코드 직접 링크는 해당 목록에 없어 아직 추가하지 않았습니다.
 
 ## 튜터링 챕터 추가
 
