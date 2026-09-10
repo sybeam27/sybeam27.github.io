@@ -60,3 +60,7 @@ Official institution sites; marks identify the associated institution, not an en
 - Official JBNU English wordmark: https://www.jbnu.ac.kr/resources/user/web/img/icon/icon_logo_eng_blue.svg
 - Mobigen corporate wordmark: https://www.mobigen.com/images/logo.png (replaces Graphio product logo).
 - Sure Data wordmark: https://suredatalab.com/site/imgs/h1.png (white wordmark displayed on dark background).
+
+## CKAIA 2026 update
+- Paper title and August 7, 2026 presentation in the international-conference research sharing session supplied by the owner. Author list pending confirmation.
+- Conference name and August 6–8 dates: https://aiassociation.kr/Conference/ConferenceView.asp?AC=0&CODE=CC20260501&CpPage=

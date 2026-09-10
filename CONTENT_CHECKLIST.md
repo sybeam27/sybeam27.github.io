@@ -90,3 +90,7 @@ About → Publications → Background → Etc → CV 순서의 독립 HTML 페�
 - [x] Background에 수상·발표·튜터링·기술 통합, 기관 로고를 기간 아래 배치
 - [x] 공식 영문 대학 로고 적용
 - [x] Projects 탭: CV 연구 프로젝트 6건, BK21 프로그램 1건, 산업 프로젝트 8건
+
+- [x] CKAIA 2026 국내 논문 및 2026-08-07 국제학회 성과 공유 세션 발표 추가
+- [ ] CKAIA 2026 논문 전체 저자 순서와 기여 표시 확인
+- [x] Publications International / Domestic 바로가기 및 프로필 사진 중앙 배치
