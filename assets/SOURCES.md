@@ -1,0 +1,44 @@
+# Asset and bibliographic sources
+
+This file records maintenance provenance; it is not linked from the public publication list.
+
+## Publication figures
+
+- `qpignn.png`: QpiGNN, Figure 1, author manuscript: https://arxiv.org/html/2605.04847v2/i.figure_qpignn.png
+- `discorec.png`: author repository framework: https://github.com/Smingaeng/DisCoRec (image: https://github.com/user-attachments/assets/cd4e2cc8-bb18-4d4b-b970-95ed0e2cb68e)
+- `mv-llmrec.png`: author repository framework: https://github.com/Smingaeng/MV-LLMRec (image: https://github.com/user-attachments/assets/3baa7347-b2cd-4e40-861b-4494a9a27008), checked against Figure 1 of https://ojs.aaai.org/index.php/AAAI/article/download/42280/46241
+- `mr-pruner.png`: Figure 3, page 4 of the official WACV PDF, rendered from the PDF figure region without altering its contents: https://openaccess.thecvf.com/content/WACV2026/papers/Han_MR-Pruner_Training-free_Multi-resolution_Visual_Token_Pruning_for_Multi-modal_Large_Language_WACV_2026_paper.pdf
+- `periodic-event-graphs.jpg`: Park, Lee, and Lim (2025), Dynamic Periodic Event Graphs for multivariate time series pattern prediction, PeerJ Computer Science 11:e2717, Figure 2, CC BY. https://doi.org/10.7717/peerj-cs.2717 ; image: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7428/11888914/e1a81e3bfae4/peerj-cs-11-2717-g002.jpg
+- `fnrgnn.png`: Figure 1, author manuscript: https://arxiv.org/html/2510.19257v1/fig_method.png
+- `iap-as.png`: Figure 1, author manuscript: https://arxiv.org/html/2504.13560v1/fig.intro.png
+- `dksvqa.png`: author repository overview: https://raw.githubusercontent.com/gooriiie/DKSVQA/main/figure/framework_overview.png
+- `quantile-free-gnn.png`: earlier thumbnail from https://disl-lab.github.io/assets/img/paper/26-icml-soyoung.png ; retained for compatibility, no longer displayed.
+
+Publisher and author links are provided as Paper / Code under the corresponding publication. AAAI is identified as Student Abstract and Poster Program; SIGIR as Short Paper; WWW as Workshop. Domestic English titles follow the supplied CV. Their figures have not been supplied or verified; those entries remain text-only.
+
+## Organization marks
+
+Official institution sites; marks identify the associated institution, not an endorsement.
+
+- UNIST: https://www.unist.ac.kr/_res/unist/unist/img/common/img-logo-new-b.png
+- CNU: https://plus.cnu.ac.kr/favicon.ico?ver=20220726
+- JBNU: https://www.jbnu.ac.kr/resources/user/web/img/icon/icon_logo_blue.svg
+- Mobigen: https://www.mobigen.com/images/hero/logo.png
+- Penta System: https://www.penta.co.kr/img/com/logo.svg
+- Sure Data Lab: https://suredatalab.com/favicon.png
+- MAFRA: https://www.mafra.go.kr/sites/home/images/new/layout/logo.png
+- KoROAD: https://www.koroad.or.kr/static/img/main/landing_logo.png
+- MOLIT: https://www.molit.go.kr/images/www2026/logo.png
+- NTS: https://www.nts.go.kr/images/web/nts/layout/logo1.png
+- ETRI: https://www.etri.re.kr/images/intro/logo-color.svg
+- Innopolis Foundation: https://www.innopolis.or.kr/resources/images/mps/2025/layout/header-logo.svg
+
+## Profile and affiliation
+
+- Photo and CV supplied by the site owner.
+- Current institution, role, September 2026 start, email addresses, Scholar and ORCID confirmed directly by the owner.
+- Faculty/lab name: https://aigs.unist.ac.kr/eng/yeon-chang-lee/
+- Safe AI Research Center English name: https://spl.unist.ac.kr/category/projects/
+- InnoCORE program: https://www.innocore.or.kr/unist
+- Layout reference: https://tuanluu.github.io/index.html
+- `favicon.svg`: simplified pink Loopy face drawn as a small SVG at the owner's request; not an official character asset.

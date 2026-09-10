@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#285a96"/><text x="32" y="43" text-anchor="middle" font-family="Georgia,serif" font-size="33" fill="#ffffff">sp</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Pink Loopy face</title>
+  <g stroke="#a34b66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="19" r="9" fill="#f4a4bb"/>
+    <circle cx="52" cy="19" r="9" fill="#f4a4bb"/>
+    <circle cx="12" cy="19" r="4.5" fill="#e986a4" stroke="none"/>
+    <circle cx="52" cy="19" r="4.5" fill="#e986a4" stroke="none"/>
+    <path d="M7 35C7 19 16 10 32 10S57 19 57 35C57 50 48 58 32 58S7 50 7 35Z" fill="#f6aec3"/>
+    <path d="M28 11Q29 6 33 7Q31 10 35 11" fill="#f6aec3"/>
+    <ellipse cx="15" cy="40" rx="5" ry="3" fill="#ef87a6" stroke="none"/>
+    <ellipse cx="49" cy="40" rx="5" ry="3" fill="#ef87a6" stroke="none"/>
+    <ellipse cx="22" cy="30" rx="2.5" ry="3" fill="#34232a" stroke="none"/>
+    <ellipse cx="42" cy="30" rx="2.5" ry="3" fill="#34232a" stroke="none"/>
+    <ellipse cx="32" cy="38" rx="6" ry="4.5" fill="#8a435d" stroke="none"/>
+    <path d="M23 45Q32 53 41 45" fill="#713344" stroke="#713344"/>
+    <path d="M28 47H36V52Q32 54 28 52Z" fill="#fffaf7" stroke="none"/>
+  </g>
+</svg>
