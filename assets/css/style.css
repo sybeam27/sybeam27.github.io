@@ -132,3 +132,19 @@ li { margin-bottom: 8px; }
 .record-aside .organization-tag { min-height: 0; }
 .jbnu-emblem { display: block; width: 36px; height: 36px; background: url('../images/organizations/jbnu-emblem-en.png') -15px -2px / 123px 40px no-repeat; }
 .project-affiliation { font-size: 13px; color: var(--muted); }
+
+.news-list { list-style: none; padding: 0; }
+.news-list li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; margin-bottom: 12px; font-size: 14px; }
+.news-list time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.record-aside .university-symbol img { width: 36px; height: 36px; }
+@media (max-width: 560px) {
+  .profile { grid-template-columns: minmax(0, 1fr) 88px; gap: 18px 16px; align-items: center; }
+  .profile-copy { display: contents; }
+  .profile-heading { grid-column: 1; grid-row: 1; }
+  .profile-heading h1 { font-size: 26px; }
+  .profile-heading .position { font-size: 13px; margin-bottom: 0; }
+  .profile-photo { width: 88px; grid-column: 2; grid-row: 1; justify-self: end; }
+  .profile-copy > p, .profile-links { grid-column: 1 / -1; margin-bottom: 0; }
+  .profile-links { gap: 8px 18px; }
+  .news-list li { grid-template-columns: 1fr; gap: 2px; margin-bottom: 16px; }
+}

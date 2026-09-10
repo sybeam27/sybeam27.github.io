@@ -62,7 +62,10 @@ Official institution sites; marks identify the associated institution, not an en
 - Sure Data wordmark: https://suredatalab.com/site/imgs/h1.png (white wordmark displayed on dark background).
 
 ## CKAIA 2026 update
-- Paper title and August 7, 2026 presentation in the international-conference research sharing session supplied by the owner. Author list pending confirmation.
+- Paper title and August 7, 2026 presentation in the international-conference research sharing session supplied by the owner. Authors confirmed by the owner: Soyoung Park, Sungsu Lim (corresponding author).
 - Conference name and August 6–8 dates: https://aiassociation.kr/Conference/ConferenceView.asp?AC=0&CODE=CC20260501&CpPage=
 
 - JBNU traditional English emblem: https://www.jbnu.ac.kr/resources/user/eng/img/sub/embelem_traditional_01.png (official image includes English and Korean variants; CSS displays the English portion without modifying the source file).
+
+- 2026 CNU Research Fair year correction and new CNU Outstanding Research Award supplied by the owner. News summarizes confirmed profile, publications, presentations and awards; unspecified award months remain year-only.
+- CNU symbol uses the emblem region of the previously sourced official English SVG; CNU and JBNU emblems share a 36px display size.
